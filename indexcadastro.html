@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - OIBook</title>
+    <style>
+        /* Estilos semelhantes à página de login */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.unsplash.com/photo-1529655683826-aba9b3e77383') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .notification {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #d9534f;
+        }
+    </style>
+    <script>
+        function saveUser(event) {
+            event.preventDefault(); // Evita o envio do formulário
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const notification = document.getElementById('notification');
+
+            // Armazena os dados do usuário no localStorage
+            const userData = {
+                email: email,
+                password: password
+            };
+
+            // Verifica se o e-mail já está cadastrado
+            if (localStorage.getItem(email)) {
+                notification.textContent = 'Este e-mail já está cadastrado!';
+                notification.style.display = 'block';
+            } else {
+                localStorage.setItem(email, JSON.stringify(userData));
+                notification.textContent = 'Cadastro realizado com sucesso! Você pode fazer login agora.';
+                notification.style.color = 'green';
+                notification.style.display = 'block';
+
+                // Limpa os campos após o cadastro
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+
+                // Redireciona para a página de login após 2 segundos
+                setTimeout(() => {
+                    window.location.href = "index0.html"; // Substitua pelo nome da sua página de login
+                }, 2000);
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Cadastro - OIBook</h2>
+        <form onsubmit="saveUser(event)">
+            <input type="email" id="email" placeholder="E-mail" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit">Cadastrar</button>
+            <div id="notification" class="notification"></div>
+        </form>
+    </div>
+
+</body>
+</html>

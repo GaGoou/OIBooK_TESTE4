@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de HTML e CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f8b400, #f06b42);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Menu */
+        nav {
+            background-color: #343a40;
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #495057;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .course-detail {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .course-detail img {
+            width: 600px;
+            height: 400px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+        }
+
+        .course-detail h2 {
+            font-size: 2em;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        .course-detail p {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
+        .course-detail a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-detail a:hover {
+            background-color: #218838;
+        }
+
+        /* Outros Cursos */
+        .other-courses {
+            margin-top: 60px;
+        }
+
+        .other-courses h3 {
+            text-align: center;
+            color: #343a40;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .other-courses .course {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            background-color: #f4f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .other-courses .course img {
+            width: 180px;
+            height: 120px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .other-courses .course h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.8em;
+            color: #007bff;
+        }
+
+        .other-courses .course p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .other-courses .course a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #28a745;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .other-courses .course a:hover {
+            background-color: #218838;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #f8b400;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Cursos</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container">
+        <!-- Detalhes do Curso -->
+        <div class="course-detail">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMWoGF6rH7ETxB2StlobewDwgBcX2QUtd2jQ&s" alt="Curso de HTML e CSS">
+            <h2>Curso de HTML e CSS</h2>
+            <p>Aprenda os fundamentos de HTML e CSS para criar websites modernos e responsivos. Este curso abrange desde o básico até técnicas avançadas, permitindo que você desenvolva projetos profissionais com layouts sofisticados. Ideal para iniciantes e para quem deseja aprofundar seus conhecimentos na criação de sites.</p>
+            <a href="#">Inscreva-se agora</a>
+        </div>
+
+        <!-- Outros Cursos -->
+        <div class="other-courses">
+            <h3>Outros Cursos</h3>
+
+            <div class="course">
+                <img src="https://hermes.dio.me/articles/cover/a4b5221c-5d38-4f82-830e-78a655b87de6.jpg" alt="Introdução ao JavaScript">
+                <div>
+                    <h2>Introdução ao JavaScript</h2>
+                    <p>Descubra como adicionar interatividade aos seus sites com JavaScript. Este curso abrange desde os fundamentos até técnicas avançadas, permitindo que você desenvolva projetos dinâmicos e responsivos.</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+            <div class="course">
+                <img src="https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1" alt="Programação em Python">
+                <div>
+                    <h2>Programação em Python</h2>
+                    <p>Domine a linguagem Python e comece a criar suas próprias aplicações. Este curso abrange desde o básico até o desenvolvimento de projetos complexos, ideal para quem deseja se especializar em programação.</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+            <div class="course">
+                <img src="https://newsroom.unl.edu/announce/files/file41923.jpg" alt="Desenvolvimento Web com React">
+                <div>
+                    <h2>Desenvolvimento Web com React</h2>
+                    <p>Aprenda a construir interfaces de usuário modernas com a biblioteca React. Este curso abrange desde os fundamentos até a criação de aplicações completas e escaláveis.</p>
+                    <a href="#">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Cursos de Programação. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Uso</a></p>
+    </footer>
+
+</body>
+
+</html>

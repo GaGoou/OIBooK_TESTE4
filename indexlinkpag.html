@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECLOG - Pagamento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d6a6f0; /* Roxo claro */
+        }
+
+        header nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: #d6a6f0; /* Roxo claro */
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav a:hover {
+            background-color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #3c3c3c;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h1 {
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .summary, .payment-methods, .discount {
+            margin-bottom: 2rem;
+        }
+
+        .summary h2, .payment-methods h2, .discount h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #d6a6f0; /* Roxo claro */
+        }
+
+        .summary ul {
+            list-style: none;
+            padding: 0;
+            border-bottom: 1px solid #555;
+        }
+
+        .summary ul li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #666;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            color: #e0e0e0;
+        }
+
+        .summary .total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #d6a6f0; /* Roxo claro */
+        }
+
+        .discount {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+        }
+
+        .discount input[type="text"] {
+            padding: 0.5rem;
+            border: 1px solid #666;
+            border-radius: 4px;
+            width: calc(100% - 110px);
+            box-sizing: border-box;
+            background-color: #4a4a4a;
+            color: #e0e0e0;
+        }
+
+        .discount button {
+            background-color: #d6a6f0; /* Roxo claro */
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .discount button:hover {
+            background-color: #b68cf6; /* Roxo mais claro */
+        }
+
+        .payment-methods label {
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #e0e0e0;
+        }
+
+        .payment-methods input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .actions button {
+            background-color: #d6a6f0; /* Roxo claro */
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .actions button:hover {
+            background-color: #b68cf6; /* Roxo mais claro */
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #d6a6f0; /* Roxo claro */
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-icons a {
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            color: #d6a6f0; /* Roxo claro */
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #b68cf6; /* Roxo mais claro */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">TECLOG</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="#">Compras</a>
+            <a href="#">Contato</a>
+            <a href="#">Carrinho</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Finalizar Compra</h1>
+
+        <div class="summary">
+            <h2>Resumo do Pedido</h2>
+            <ul>
+                <li>Produto: <span id="productName">PC Gamer Ultra High-End</span></li>
+                <li>Preço: <span id="productPrice">R$ 12.499,99</span></li>
+                <li>Quantidade: <span id="productQuantity">1</span></li>
+                <li class="total">Total: <span id="totalPrice">R$ 12.499,99</span></li>
+            </ul>
+        </div>
+
+        <div class="discount">
+            <h2>Código de Desconto</h2>
+            <label for="discountCode">Digite seu código:</label>
+            <input type="text" id="discountCode" placeholder="Código de desconto">
+            <button id="applyDiscount">Aplicar Desconto</button>
+            <p id="discountMessage"></p>
+        </div>
+
+        <div class="payment-methods">
+            <h2>Métodos de Pagamento</h2>
+            <label>
+                <input type="radio" name="payment" value="credit_card" checked>
+                Cartão de Crédito
+            </label>
+            <label>
+                <input type="radio" name="payment" value="boleto">
+                Boleto Bancário
+            </label>
+            <label>
+                <input type="radio" name="payment" value="paypal">
+                PayPal
+            </label>
+        </div>
+
+        <div class="actions">
+            <button id="payNow">Pagar Agora</button>
+            <button id="cancel">Cancelar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TECLOG. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const originalPrice = 12499.99;
+        const discountMessage = document.getElementById('discountMessage');
+        const totalPriceElement = document.getElementById('totalPrice');
+        const applyDiscountButton = document.getElementById('applyDiscount');
+
+        applyDiscountButton.addEventListener('click', function() {
+            const discountCode = document.getElementById('discountCode').value;
+            let discountedPrice = originalPrice;
+            
+            if (discountCode === 'DESCONTO10') {
+                discountedPrice *= 0.9; // 10% de desconto
+                discountMessage.textContent = 'Desconto aplicado com sucesso!';
+                discountMessage.style.color = '#4CAF50'; // Verde
+            } else {
+                discountMessage.textContent = 'Código de desconto inválido.';
+                discountMessage.style.color = '#F44336'; // Vermelho
+            }
+
+            totalPriceElement.textContent = `R$ ${discountedPrice.toFixed(2)}`;
+        });
+
+        document.getElementById('payNow').addEventListener('click', function() {
+            // Substitua o URL abaixo pelo link de pagamento real
+            const paymentLink = 'https://www.seulinkdepagamento.com';
+            window.location.href = paymentLink; 
+        });
+
+        document.getElementById('cancel').addEventListener('click', function() {
+            window.location.href = 'index.html'; 
+        });
+    </script>
+</body>
+
+</html>

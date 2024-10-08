@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECLOG - Carrinho de Compras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2a1a47;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav a:hover {
+            background-color: #1a0d29;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid #ddd;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item .details {
+            flex: 1;
+            margin-left: 1rem;
+        }
+
+        .cart-item .details h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .cart-item .details p {
+            margin: 0.5rem 0;
+        }
+
+        .cart-item .quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-item .quantity input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 0.5rem;
+        }
+
+        .cart-item .price {
+            font-weight: bold;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .actions button {
+            background-color: #2a1a47;
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .actions button:hover {
+            background-color: #1a0d29;
+        }
+
+        footer {
+            background-color: #2a1a47;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .social-icons a {
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #e60012;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">TECLOG</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="#">Compras</a>
+            <a href="#">Contato</a>
+            <a href="#">Carrinho</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Carrinho de Compras</h1>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/80" alt="Produto 1">
+            <div class="details">
+                <h2>PC Gamer Ultra High-End</h2>
+                <p>Descrição do produto detalhada.</p>
+                <div class="quantity">
+                    <label for="quantity1">Quantidade:</label>
+                    <input type="number" id="quantity1" value="1" min="1">
+                </div>
+            </div>
+            <div class="price">R$ 12.499,99</div>
+        </div>
+
+        <div class="cart-item">
+            <img src="https://via.placeholder.com/80" alt="Produto 2">
+            <div class="details">
+                <h2>Monitor 4K</h2>
+                <p>Descrição do produto detalhada.</p>
+                <div class="quantity">
+                    <label for="quantity2">Quantidade:</label>
+                    <input type="number" id="quantity2" value="2" min="1">
+                </div>
+            </div>
+            <div class="price">R$ 2.499,99</div>
+        </div>
+
+        <div class="total">
+            <span>Total:</span>
+            <span>R$ 17.499,97</span>
+        </div>
+
+        <div class="actions">
+            <button id="indexlinkpag.html">Finalizar Compra</button>
+            <button id="index.html">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 TECLOG. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('proceedToCheckout').addEventListener('click', function() {
+            // Substitua pelo link da página de checkout real
+            const checkoutLink = 'checkout.html';
+            window.location.href = checkoutLink;
+        });
+
+        document.getElementById('continueShopping').addEventListener('click', function() {
+            // Substitua pelo link da página de produtos ou início
+            const continueShoppingLink = 'index.html';
+            window.location.href = continueShoppingLink;
+        });
+    </script>
+</body>
+
+</html>

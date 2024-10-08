@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha - TECLOG</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: url('https://cloudfront-us-east-1.images.arcpublishing.com/newr7/XZNKZQUAFFK3RISPIJOHHKQ4RY.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .reset-container {
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        button {
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reset-container">
+        <h1>Redefinir Senha</h1>
+        <p>Digite a nova senha para sua conta.</p>
+        <form id="reset-password-form" onsubmit="return handlePasswordUpdate();">
+            <input type="password" id="new-password" name="password" placeholder="Nova senha" required>
+            <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirmar senha" required>
+            <button type="submit">Redefinir Senha</button>
+        </form>
+    </div>
+
+    <script>
+        function handlePasswordUpdate() {
+            const newPassword = document.getElementById('new-password').value.trim();
+            const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+            if (newPassword !== confirmPassword) {
+                alert('As senhas não coincidem.');
+                return false;
+            }
+
+            const resetData = JSON.parse(localStorage.getItem('passwordResetRequest'));
+            if (resetData) {
+                const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+                const user = storedUsers.find(user => user.email === resetData.email);
+
+                if (user) {
+                    user.password = newPassword;
+
+                    localStorage.setItem('users', JSON.stringify(storedUsers));
+                    localStorage.removeItem('passwordResetRequest'); // Limpar os dados de reset
+
+                    alert('Senha redefinida com sucesso! Agora você pode fazer login com sua nova senha.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Erro ao redefinir a senha. Tente novamente.');
+                }
+            } else {
+                alert('Solicitação de redefinição de senha inválida.');
+            }
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>
